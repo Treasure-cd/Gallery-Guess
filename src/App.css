@@ -31,7 +31,39 @@ header {
   color: #800020;
 }
 .tiny-text {
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 0;
   margin-bottom: 5px;
+}
+
+.sentence-prompt {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  position: relative; /* Parent must be relative for absolute positioning */
+}
+.blurred {
+  display: block;
+}
+
+.btn {
+  position: absolute;
+  top: 50%; /* Moves button down to the middle */
+  left: 50%; /* Moves button to the center */
+  transform: translate(-50%, -50%); /* Centers the button perfectly */
+  background: #1F2C34d1;
+  border-radius: 7px;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:hover {
+  border: #800020a8 1px solid;
 }
