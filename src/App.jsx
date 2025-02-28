@@ -1,22 +1,17 @@
-import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import './App.css'
-import Header from './components/Header';
-import BlurImage from './components/BlurImage';
-import Image from './components/Image';
-import { useState } from 'react';
+import StartPage from "./components/StartPage";
+import GamePage from "./components/GamePage";
 
-const App = () => {
-  const [showNormal, setShowNormal] = useState(false);
-
+function App() {
   return (
-    <div className='container'>
-    <Header></Header>
-    <div><p className='sentence-prompt'>Guess all about the artwork in a very riveting three minutes.</p></div>
-    <div className='image-container'>
-    {showNormal ? <Image /> : <BlurImage onClick={() => setShowNormal(true)} />}
-    </div>
-</div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<StartPage />} />
+        <Route path="/game" element={<GamePage />} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;
