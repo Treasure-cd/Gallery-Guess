@@ -7,7 +7,7 @@ const BlurImage = () => {
     return (
       <div>
         <img src="public\Mona_Lisa_blur.jpg" alt="Blurred" className="blurred" />
-      <button className="btn" onClick={() => navigate("/game")}>START &nbsp;<FontAwesomeIcon icon={faPlay} /></button>
+      <button className="btn" onClick={() => navigate("/play")}>START &nbsp;<FontAwesomeIcon icon={faPlay} /></button>
       </div>
     );
   };

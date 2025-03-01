@@ -3,6 +3,7 @@ import Header from './Header';
 import BlurImage from './BlurImage';
 import Image from './Image';
 import { useNavigate } from "react-router-dom";
+import Footer from './Footer';
 
 
 const StartPage = () => {
@@ -16,6 +17,7 @@ const StartPage = () => {
     <div className='image-container'>
     <BlurImage></BlurImage>
     </div>
+    <Footer></Footer>
 </div>
   );
 };
