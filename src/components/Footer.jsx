@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer>Made with &#x1F9E1; by Treasure. @{new Date().getFullYear()}</footer>
+    <footer>Made with &#10084; by Treasure. @{new Date().getFullYear()}</footer>
   )
 }
 

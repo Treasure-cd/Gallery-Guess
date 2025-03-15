@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong }) => {
+const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo }) => {
   const [wrongGuesses, setWrongGuesses] = useState([]);
   const [guess, setGuess] = useState("");
   const [failCount, setFailCount] = useState(0);
@@ -22,6 +22,10 @@ const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong }) => {
       }
     }
     setGuess("");
+  }
+
+  function roundTwoOpen() {
+    setRoundTwo(false);
   }
 
   return (
@@ -52,7 +56,7 @@ const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong }) => {
           </div>
         </>
       ) : (
-        <button className='next-round-button'>
+        <button className='next-round-button' onClick={roundTwoOpen}>
           Next Round
         </button>
       )}

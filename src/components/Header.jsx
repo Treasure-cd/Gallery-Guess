@@ -5,6 +5,7 @@ export default function Header() {
     <header>
         <h1 className='logo'>GALLERY <span className='logo-red-part'>GUESS</span></h1>
         <p className='tiny-text'>for art nerds.</p>
+
         </header>
   )
 }
