@@ -71,7 +71,7 @@ header {
 .clear {
   display: block;
 }
-.btn {
+.start-btn {
   position: absolute;
   top: 50%;
   left: 50%; 
@@ -85,7 +85,7 @@ header {
   font-weight: 600;
 }
 
-.btn:hover {
+.start-btn:hover {
   border: #800020a8 1px solid;
 }
 
@@ -260,11 +260,32 @@ li {
   background-color: green; /* Green for correct */
 }
 
-.option.incorrect {
+.option.wrong {
   background-color: red; /* Red for incorrect */
 }
 
+.option.test {
+  background-color: aquamarine;
+}
 /* Other styles... */
+
+.artistButton {
+    margin-top: 20px;
+    background-color: #1F2C34;
+    color: black;
+    border: 1px solid #800020;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: 'Roboto';
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .artistButton:hover {
+    background-color: #272727;
+    border: 1px solid #800020;
+  }
 
 
 @media (max-width: 600px) {

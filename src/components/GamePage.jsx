@@ -11,6 +11,7 @@ const GamePage = () => {
   const [roundTwo, setRoundTwo] = useState(true);
   const [correct, setCorrect] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null); // Track clicked option
+  const [staticDivs, setStaticDivs] = useState(true);
 
   const rightAnswer = 4; // The correct answer index
 
@@ -22,7 +23,11 @@ const GamePage = () => {
     } else {
       setCorrect(2); // Mark as wrong
     }
+
+        setStaticDivs(false);
   };
+
+
 
   return (
     <div className="container">
@@ -48,8 +53,9 @@ const GamePage = () => {
               correct={correct} 
               selectedOption={selectedOption} 
               setSelectedOption={setSelectedOption} 
+              staticDivs={staticDivs}
             />
-            <button onClick={rightOrWrong}>GUESS</button>
+            <button onClick={rightOrWrong} className="artistButton">GUESS</button>
           </>
         )}
       </main>
