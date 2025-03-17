@@ -25,7 +25,7 @@ const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo 
   }
 
   function roundTwoOpen() {
-    setRoundTwo(false);
+    setRoundTwo(1);
   }
 
   return (

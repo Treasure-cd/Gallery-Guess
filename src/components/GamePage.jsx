@@ -8,10 +8,11 @@ import Options from "./Options";
 const GamePage = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
-  const [roundTwo, setRoundTwo] = useState(true);
+  const [roundTwo, setRoundTwo] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null); // Track clicked option
   const [staticDivs, setStaticDivs] = useState(true);
+  const [roundThreeButton, setRoundThreeButton] = useState(false);
 
   const rightAnswer = 4; // The correct answer index
 
@@ -24,16 +25,23 @@ const GamePage = () => {
       setCorrect(2); // Mark as wrong
     }
 
-        setStaticDivs(false);
+    setStaticDivs(false);
+    setRoundThreeButton(true);
   };
 
-
+  const startNextRound = () => {
+    setRoundTwo(roundTwo + 1);
+    setCorrect(0);
+    setSelectedOption(null);
+    setStaticDivs(true);
+    setRoundThreeButton(false);
+  };
 
   return (
     <div className="container">
       <GamePageHeader />
       <main>
-        {roundTwo ? (
+        {roundTwo === 0 ? (
           <>
             <div className="image-container">
               <Image isCorrect={isCorrect} isWrong={isWrong} />
@@ -46,18 +54,31 @@ const GamePage = () => {
               setRoundTwo={setRoundTwo}
             />
           </>
-        ) : (
+        ) : roundTwo === 1 ? (
           <>
             <h2 className="painter-prompt">Who was the artist?</h2>
-            <Options 
-              correct={correct} 
-              selectedOption={selectedOption} 
-              setSelectedOption={setSelectedOption} 
+            <Options
+              correct={correct}
+              selectedOption={selectedOption}
+              setSelectedOption={setSelectedOption}
               staticDivs={staticDivs}
             />
-            <button onClick={rightOrWrong} className="artistButton">GUESS</button>
+            <div className="artist-button-container">
+              <button onClick={rightOrWrong} className="artistButton">GUESS</button>
+              {roundThreeButton ? (
+                <button className='next-round-button' onClick={startNextRound}>Next Round</button>
+              ) : ("")}
+            </div>
           </>
-        )}
+        ) : roundTwo === 2 ? (
+          <>
+            {/* Add your third round content here */}
+            <h2 className="painter-prompt">Third Round Content</h2>
+            {/* Example content */}
+            <p>This is the third round!</p>
+            <button onClick={startNextRound} className='next-round-button'>Finish Game</button>
+          </>
+        ) : null}
       </main>
       <Footer />
     </div>
