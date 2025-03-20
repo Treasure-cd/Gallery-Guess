@@ -4,7 +4,7 @@ import Image from "./Image";
 import Footer from "./Footer";
 import GuessInput from "./GuessInput";
 import Options from "./Options";
-
+import LongOptions from "./longOptions";
 const GamePage = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
@@ -72,11 +72,8 @@ const GamePage = () => {
           </>
         ) : roundTwo === 2 ? (
           <>
-            {/* Add your third round content here */}
-            <h2 className="painter-prompt">Third Round Content</h2>
-            {/* Example content */}
-            <p>This is the third round!</p>
-            <button onClick={startNextRound} className='next-round-button'>Finish Game</button>
+            <h2>What year period was it painted?</h2>
+            <LongOptions></LongOptions>
           </>
         ) : null}
       </main>

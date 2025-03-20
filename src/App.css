@@ -259,17 +259,16 @@ li {
 }
 
 .option.correct {
-  background-color: green; /* Green for correct */
+  background-color: green;
 }
 
 .option.wrong {
-  background-color: red; /* Red for incorrect */
+  background-color: red; 
 }
 
 .option.test {
   background-color: aquamarine;
 }
-/* Other styles... */
 
 .artistButton {
     margin-top: 20px;
@@ -291,6 +290,38 @@ li {
 
   .artist-button-container {
     display: flex;
+  }
+
+  .long-option {
+    width: 450px;
+    height: 40px;
+    background-color: #253037;
+    margin-bottom: 10px;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+  .long-option-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .long-option:hover {
+    background-color: #272727;
+    border: 1px solid #800020; 
+  }
+
+  .long-option.correct {
+    background-color: green;
+  }
+
+  .long-option.wrong {
+    background-color: red;
   }
 
 @media (max-width: 600px) {
