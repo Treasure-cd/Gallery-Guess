@@ -4,7 +4,8 @@ import Image from "./Image";
 import Footer from "./Footer";
 import GuessInput from "./GuessInput";
 import Options from "./Options";
-import LongOptions from "./longOptions";
+import LongOptions from "./LongOptions";
+
 const GamePage = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
@@ -72,8 +73,10 @@ const GamePage = () => {
           </>
         ) : roundTwo === 2 ? (
           <>
+
             <h2>What year period was it painted?</h2>
             <LongOptions></LongOptions>
+
           </>
         ) : null}
       </main>

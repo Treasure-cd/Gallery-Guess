@@ -324,6 +324,32 @@ li {
     background-color: red;
   }
 
+  .guess-country {
+    height: 40px;
+    background-color: #2c2c2c;
+    border: 1px solid black;
+    border-radius: 10px 0px 0px 10px;
+    width: 300px;
+    padding-left: 15px;
+    font-family: 'Roboto';
+    color: black;
+    font-size: 17px;
+    font-weight: 500;
+  }
+
+  .guess-country-btn {
+    background-color: #2c2c2c;
+    border-radius: 0px 10px 10px 0px;
+    border: 1px solid black;
+    font-family: 'Roboto';
+    width: 70px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 15px;
+    height: 40px;
+  }
+
+
 @media (max-width: 600px) {
   .logo {
     font-size: 45px;

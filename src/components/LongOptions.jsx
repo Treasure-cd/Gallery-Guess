@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import GuessCountry from "./GuessCountry";
+import Header from "./Header";
 const LongOptions = () => {
   const [yearCorrect, setYearCorrect] = useState(true); //for render of option
   const [selectedOption, setSelectedOption] = useState(null); //to track option that was selected, probably for animation purposes
@@ -11,7 +12,9 @@ const LongOptions = () => {
   }
 
   return (
+    
     <>
+
       {yearCorrect ? (
         <div className='long-option-container'>
           {[0, 1, 2, 3].map((startLongIndex) => (
@@ -25,6 +28,7 @@ const LongOptions = () => {
           ))}
         </div>
       ) : (
+
         <div className='long-option-container'>
           {[0, 1, 2, 3].map((startLongIndex) => {
             let className = "long-option";
