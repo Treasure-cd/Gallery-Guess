@@ -5,18 +5,27 @@ const GuessCountry = () => {
     const [countryValue, setCountryValue] = useState("");
     const [wrongCountryGuess, setWrongCountryGuess] = useState([]);
     const [wrongCountryCount, setWrongCountryCount] = useState(0);
-    const [overlayClassName, setOverlayClassName] = useState("")
+    const [overlayClassName, setOverlayClassName] = useState("");
+    const [inputLock, setInputLock] = useState(true);
 function handleCountry(event) {
     setCountryValue(event.target.value);
 }
 const rightCountry = "Italy"
 function countryGuess() {
     if (countryValue === rightCountry) {
-        setOverlayClassName("overlay")
-        setCountryValue("")
+        setOverlayClassName("overlay");
+        setCountryValue("");
+        setInputLock(false);
     }
     else {
+        setWrongCountryCount(wrongCountryCount + 1);
         setWrongCountryGuess((g) => [...g, countryValue]);
+        setCountryValue("");
+        console.log(wrongCountryCount);
+        if (wrongCountryCount > 1) {
+            setInputLock(false);
+            setOverlayClassName("overlay-wrong")
+        } 
     }
 }
   return (
@@ -27,16 +36,32 @@ function countryGuess() {
             <div className={overlayClassName}></div>
         </div>
         <div className='input-country-container'>
-        <input
-         type="text" 
-         className='guess-country'
-         placeholder='Guess the artists country'
-         value={countryValue}
-         onChange={handleCountry}
-         />
-         <button className='guess-country-btn' onClick={countryGuess}>
-        GUESS
-         </button>
+            {
+                inputLock ? (
+          <>
+                    <input
+                    type="text" 
+                    className='guess-country'
+                    placeholder='Guess the artists country'
+                    value={countryValue}
+                    onChange={handleCountry}
+                    />  
+                       <button className='guess-country-btn' onClick={countryGuess}>
+                        GUESS
+                     </button>
+          </>
+                ) : (
+                    <>
+                    <input
+                    type="text" 
+                    className='guess-country'
+                    placeholder='Guess the artists country'
+                    value={countryValue}
+                    />
+                    <button className='guess-country-btn' onClick={countryGuess}>GUESS</button>
+                    </>
+                )
+            }
             <div>
                 {wrongCountryGuess.map((wrongCountry, indexCountry) => (
                     <div className='country' key={indexCountry}>
