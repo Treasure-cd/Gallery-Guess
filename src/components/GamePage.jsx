@@ -6,6 +6,7 @@ import GuessInput from "./GuessInput";
 import Options from "./Options";
 import LongOptions from "./LongOptions";
 import ArtEra from "./ArtEra";
+import CurrentMuseum from "./CurrentMuseum";
 
 const GamePage = () => {
   const [isCorrect, setIsCorrect] = useState(false);
@@ -82,8 +83,9 @@ const GamePage = () => {
           </>
         ) : roundTwo === 3 ? (
           
-       <ArtEra setRoundTwo={setRoundTwo}></ArtEra> ) : roundTwo === 4 ? (
-        null
+       <ArtEra setRoundTwo={setRoundTwo}></ArtEra> ) : roundTwo === 4 ? 
+       (
+        <CurrentMuseum></CurrentMuseum>
        ) : null}
       </main>
       <Footer />

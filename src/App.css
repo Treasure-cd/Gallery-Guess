@@ -423,6 +423,14 @@ li {
       border-radius: 10px;
 
     }
+
+    
+  .grid-container-museum {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    grid-template-rows: repeat(3, 1fr);
+    gap: 16px;
+  }
 @media (max-width: 600px) {
   .logo {
     font-size: 45px;
