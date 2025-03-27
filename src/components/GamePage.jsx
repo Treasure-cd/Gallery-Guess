@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import GuessInput from "./GuessInput";
 import Options from "./Options";
 import LongOptions from "./LongOptions";
+import ArtEra from "./ArtEra";
 
 const GamePage = () => {
   const [isCorrect, setIsCorrect] = useState(false);
@@ -14,6 +15,7 @@ const GamePage = () => {
   const [selectedOption, setSelectedOption] = useState(null); // Track clicked option
   const [staticDivs, setStaticDivs] = useState(true);
   const [roundThreeButton, setRoundThreeButton] = useState(false);
+  const [roundFourButton, setRoundFourButton] = useState(false);
 
   const rightAnswer = 4; // The correct answer index
 
@@ -75,10 +77,14 @@ const GamePage = () => {
           <>
 
             <h2>What year period was it painted?</h2>
-            <LongOptions></LongOptions>
+            <LongOptions setRoundFourButton={setRoundFourButton} roundFourButton={roundFourButton} setRoundTwo={setRoundTwo}></LongOptions>
 
           </>
-        ) : null}
+        ) : roundTwo === 3 ? (
+          
+       <ArtEra setRoundTwo={setRoundTwo}></ArtEra> ) : roundTwo === 4 ? (
+        null
+       ) : null}
       </main>
       <Footer />
     </div>

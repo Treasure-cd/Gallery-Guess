@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const GuessCountry = () => {
+const GuessCountry = ({ setRoundFourButton }) => {
     const [countryValue, setCountryValue] = useState("");
     const [wrongCountryGuess, setWrongCountryGuess] = useState([]);
     const [wrongCountryCount, setWrongCountryCount] = useState(0);
@@ -16,6 +16,7 @@ function countryGuess() {
         setOverlayClassName("overlay");
         setCountryValue("");
         setInputLock(false);
+        setRoundFourButton(true);
     }
     else {
         setWrongCountryCount(wrongCountryCount + 1);
@@ -24,7 +25,8 @@ function countryGuess() {
         console.log(wrongCountryCount);
         if (wrongCountryCount > 1) {
             setInputLock(false);
-            setOverlayClassName("overlay-wrong")
+            setOverlayClassName("overlay-wrong");
+            setRoundFourButton(true);
         } 
     }
 }
@@ -59,6 +61,7 @@ function countryGuess() {
                     value={countryValue}
                     />
                     <button className='guess-country-btn' onClick={countryGuess}>GUESS</button>
+                    
                     </>
                 )
             }

@@ -349,7 +349,80 @@ li {
     height: 40px;
   }
 
+  .guess-country-container {
+    align-items: center;
+  }
+  .input-country-container {
+   text-align: center;
+   margin-top: 10px;
+  }
 
+  .round-four-button {
+    margin-top: 20px;
+    background-color: #1F2C34;
+    color: black;
+    border: 1px solid #800020;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: 'Roboto';
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .card {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    grid-template-rows: repeat(4, 1fr);
+    gap: 16px;
+  }
+    
+    .border-overlay {
+      width: 180px;
+      height: 180px;
+      background-color: transparent;
+      border: 7px transparent solid;
+      border-radius: 10px;
+
+    }
+  
+    .border-overlay.correct {
+      width: 180px;
+      height: 180px;
+      background-color: transparent;
+      border: 10px green solid;
+      border-radius: 10px;
+
+    }
+
+    .border-overlay.wrong {
+      width: 180px;
+      height: 180px;
+      background-color: transparent;
+      border: 10px red solid;
+      border-radius: 10px;
+
+    }
 @media (max-width: 600px) {
   .logo {
     font-size: 45px;

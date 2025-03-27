@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GuessCountry from "./GuessCountry";
 import Header from "./Header";
-const LongOptions = () => {
+const LongOptions = ({ setRoundFourButton, roundFourButton, setRoundTwo }) => {
   const [yearCorrect, setYearCorrect] = useState(true); //for render of option
   const [selectedOption, setSelectedOption] = useState(null); //to track option that was selected, probably for animation purposes
   const correctOption = 2; //correct option (3)
@@ -11,6 +11,9 @@ const LongOptions = () => {
     setYearCorrect(false);
   }
 
+  const nextRound = () => {
+    setRoundTwo(3);
+  }
   return (
     
     <>
@@ -47,7 +50,12 @@ const LongOptions = () => {
 
             );
  })}
-          <GuessCountry></GuessCountry>
+          <GuessCountry setRoundFourButton={setRoundFourButton}></GuessCountry>
+          {roundFourButton ? (
+            <button className="round-four-button" onClick={nextRound}>
+              NEXT ROUND
+            </button>
+          ) : (null)}
         </div>
       )  }
     </>
