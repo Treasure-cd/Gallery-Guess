@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo }) => {
   const [wrongGuesses, setWrongGuesses] = useState([]);
   const [guess, setGuess] = useState("");
   const [failCount, setFailCount] = useState(0);
+  const [wrongGuessesIndicator, setWrongGuessesIndicator] = useState(false)
 
   function handleInputChange(event) {
     setGuess(event.target.value);
@@ -15,6 +18,7 @@ const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo 
     if (guess.trim().toLowerCase().replace(/\s/g, '') === rightGuess.toLowerCase().replace(/\s/g, '')) {
       setIsCorrect(true);
     } else {
+      setWrongGuessesIndicator(true);
       setWrongGuesses(g => [...g, guess]);
       setFailCount(failCount + 1);
       if (failCount + 1 >= 3) {
@@ -30,10 +34,10 @@ const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo 
 
   return (
     <div className='guess-container'>
-      {!isCorrect && !isWrong ? (
+      
         <>
           <div className='input-button'>
-            <input
+          {!isCorrect && !isWrong ? ( <> <input
               type="text"
               className='input-box'
               placeholder='Enter art name'
@@ -45,9 +49,21 @@ const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo 
               onClick={guesses}
             >
               GUESS
-            </button>
+            </button></> ) : ( <> <input
+              type="text"
+              className='input-box'
+              placeholder='Enter art name'
+              value={guess}
+            />
+            <button
+              className='guess-button'
+
+            >
+              GUESS
+            </button></>) }
           </div>
           <div>
+            {wrongGuessesIndicator ? (<p className='indicator'>Wrong Guesses <FontAwesomeIcon icon={faXmark} className='Xmark-icon'/></p>) : (null)}
             {wrongGuesses.map((wrongGuess, index) => (
               <div className='text-container' key={index}>
                 <span className='text'>{wrongGuess}</span>
@@ -55,7 +71,7 @@ const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo 
             ))}
           </div>
         </>
-      ) : (
+        {!isCorrect && !isWrong ? (null) : (
         <button className='next-round-button' onClick={roundTwoOpen}>
           Next Round
         </button>

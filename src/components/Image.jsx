@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Image = ({ isCorrect, isWrong }) => {
   return (
@@ -12,7 +13,7 @@ const Image = ({ isCorrect, isWrong }) => {
         </div>
       )}
       {isWrong && (
-        <div className='overlay-wrong'></div>
+        <div className='overlay-wrong' > <FontAwesomeIcon icon={faXmark} className='big-x-mark' /><span className='correct-answer'>ANS: MONA LISA</span></div>
       )}
     </div>
   );

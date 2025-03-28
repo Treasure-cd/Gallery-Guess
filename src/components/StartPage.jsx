@@ -13,7 +13,7 @@ const StartPage = () => {
   return (
     <div className='container'>
     <Header></Header>
-    <div><p className='sentence-prompt'>Guess all about the artwork in a very riveting three minutes.</p></div>
+    <div className='sentence-prompt-container'><p className='sentence-prompt'>Guess all about the artwork in a very riveting three minutes.</p></div>
     <div className='image-container'>
     <BlurImage></BlurImage>
     </div>

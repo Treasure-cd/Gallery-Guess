@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
+
 const BlurImage = () => {
   const navigate = useNavigate();
     return (

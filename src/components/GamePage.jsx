@@ -47,6 +47,7 @@ const GamePage = () => {
       <main>
         {roundTwo === 0 ? (
           <>
+          <h1 className="sentence-prompt">What is this piece called?</h1>
             <div className="image-container">
               <Image isCorrect={isCorrect} isWrong={isWrong} />
             </div>
