@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo }) => {
+const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo, setArtOrArtist }) => {
   const [wrongGuesses, setWrongGuesses] = useState([]);
   const [guess, setGuess] = useState("");
   const [failCount, setFailCount] = useState(0);
@@ -12,22 +12,36 @@ const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo 
     setGuess(event.target.value);
   }
 
-  const rightGuess = "Mona Lisa";
+  const rightGuess = ["Mona Lisa", "Leonardo da vinci"];
 
   function guesses() {
-    if (guess.trim().toLowerCase().replace(/\s/g, '') === rightGuess.toLowerCase().replace(/\s/g, '')) {
+    if (guess.trim().toLowerCase().replace(/\s/g, '') === rightGuess[0].toLowerCase().replace(/\s/g, '') || guess.trim().toLowerCase().replace(/\s/g, '') === rightGuess[1].toLowerCase().replace(/\s/g, '')) {
+      if (guess.trim().toLowerCase().replace(/\s/g, '') === rightGuess[0].toLowerCase().replace(/\s/g, '')) {
+        setArtOrArtist("artist");
+      }
+      else if (guess.trim().toLowerCase().replace(/\s/g, '') === rightGuess[1].toLowerCase().replace(/\s/g, '')) {
+        setArtOrArtist("art");
+      };
       setIsCorrect(true);
+      setGuess("");
     } else {
+      // Wrong guess - update wrong guess tracking
       setWrongGuessesIndicator(true);
       setWrongGuesses(g => [...g, guess]);
-      setFailCount(failCount + 1);
-      if (failCount + 1 >= 3) {
+      const newFailCount = failCount + 1;
+      setFailCount(newFailCount);
+      
+      // Check if this was the third wrong guess
+      if (newFailCount === 3) {
         setIsWrong(true);
       }
+      
+      setGuess("");
     }
-    setGuess("");
   }
-
+  function giveUp() {
+    setIsWrong(true);
+  }
   function roundTwoOpen() {
     setRoundTwo(1);
   }
@@ -71,7 +85,7 @@ const GuessInput = ({ isCorrect, isWrong, setIsCorrect, setIsWrong, setRoundTwo 
             ))}
           </div>
         </>
-        {!isCorrect && !isWrong ? (null) : (
+        {!isCorrect && !isWrong ? (<button className='next-round-button' onClick={giveUp}>GIVE UP?</button>) : (
         <button className='next-round-button' onClick={roundTwoOpen}>
           Next Round
         </button>

@@ -169,6 +169,7 @@ li {
   margin-top: auto;
   font-family: 'Roboto';
   background-color: #2d000b;
+  font-weight: bold;
 }
 .input-box {
   height: 40px;
@@ -222,6 +223,13 @@ li {
   margin-bottom: 4px;
 
 }
+.guess-country-indicator {
+  font-size: 17px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  padding-right: 20px;  
+
+}
 .Xmark-icon {
   color: red;
 }
@@ -237,9 +245,29 @@ li {
   font-weight: 500;
   height: 41px;
   margin-top: 10px;
+  max-width: 150px;
+}
+
+.give-up-button {
+    background-color: #1F2C34;
+  color: black;
+  border: 1px solid #800020;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: 'Roboto';
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  height: 41px;
+  margin-top: 10px;
+  width: 100px;
 }
 
 .next-round-button:hover {
+  background-color: #272727;
+  border: 1px solid #800020;
+}
+.give-up-button:hover {
   background-color: #272727;
   border: 1px solid #800020;
 }
@@ -303,16 +331,18 @@ li {
 }
 
 .artistButton {
-    margin-top: 20px;
-    background-color: #1F2C34;
-    color: black;
-    border: 1px solid #800020;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-family: 'Roboto';
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: 500;
+  background-color: #1F2C34;
+  color: black;
+  border: 1px solid #800020;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: 'Roboto';
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  height: 41px;
+  margin-top: 10px;
+  margin-right: 20px;
   }
   
   .artistButton:hover {
@@ -382,13 +412,22 @@ li {
   }
 
   .guess-country-container {
+    margin-top: 20px;
     align-items: center;
   }
   .input-country-container {
    text-align: center;
    margin-top: 10px;
   }
-
+  .country {
+    background-color: #2c2c2c;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 365px;
+    padding-left: 30px;
+    border-bottom: black 1px solid;
+    margin-left: 35px;
+  }
   .round-four-button {
     margin-top: 20px;
     background-color: #1F2C34;
@@ -400,7 +439,9 @@ li {
     font-size: 16px;
     cursor: pointer;
     font-weight: 500;
-    
+    width: 150x;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .grid-container {

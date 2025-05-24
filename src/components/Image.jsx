@@ -4,6 +4,7 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Image = ({ isCorrect, isWrong }) => {
+    const rightGuess = ["Mona Lisa", "Leonardo da vinci"];
   return (
     <div className="overlay-container">
       <img src="public/Mona_Lisa.jpg" alt="Mona Lisa" className="clear" />
@@ -13,7 +14,7 @@ const Image = ({ isCorrect, isWrong }) => {
         </div>
       )}
       {isWrong && (
-        <div className='overlay-wrong' > <FontAwesomeIcon icon={faXmark} className='big-x-mark' /><span className='correct-answer'>ANS: MONA LISA</span></div>
+        <div className='overlay-wrong' > <FontAwesomeIcon icon={faXmark} className='big-x-mark' /><span className='correct-answer'>ANS: {rightGuess[1]}</span></div>
       )}
     </div>
   );

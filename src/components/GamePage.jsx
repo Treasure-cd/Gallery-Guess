@@ -17,7 +17,7 @@ const GamePage = () => {
   const [staticDivs, setStaticDivs] = useState(true);
   const [roundThreeButton, setRoundThreeButton] = useState(false);
   const [roundFourButton, setRoundFourButton] = useState(false);
-
+  const [artOrArtist, setArtOrArtist] = useState("art");
   const rightAnswer = 4; // The correct answer index
 
   const rightOrWrong = () => {
@@ -41,13 +41,25 @@ const GamePage = () => {
     setRoundThreeButton(false);
   };
 
+  function giveUp() {
+     // Do nothing if no option is selected
+
+    if (selectedOption === rightAnswer) {
+      setCorrect(1); // Mark as correct
+    } else {
+      setCorrect(2); // Mark as wrong
+    }
+
+    setStaticDivs(false);
+    setRoundThreeButton(true);
+  }
   return (
     <div className="container">
       <GamePageHeader />
       <main>
         {roundTwo === 0 ? (
           <>
-          <h1 className="sentence-prompt">What is this piece called?</h1>
+          <h1 className="sentence-prompt">Try to guess the art or artist.</h1>
             <div className="image-container">
               <Image isCorrect={isCorrect} isWrong={isWrong} />
             </div>
@@ -57,11 +69,12 @@ const GamePage = () => {
               setIsCorrect={setIsCorrect}
               setIsWrong={setIsWrong}
               setRoundTwo={setRoundTwo}
+              setArtOrArtist={setArtOrArtist}
             />
           </>
         ) : roundTwo === 1 ? (
           <>
-            <h2 className="painter-prompt">Who was the artist?</h2>
+            <h2 className="sentence-prompt"> Can you guess {artOrArtist === "art"? <span>the ART name?</span> : <span>the ARTIST?</span>}</h2>
             <Options
               correct={correct}
               selectedOption={selectedOption}
@@ -71,20 +84,22 @@ const GamePage = () => {
             <div className="artist-button-container">
               <button onClick={rightOrWrong} className="artistButton">GUESS</button>
               {roundThreeButton ? (
-                <button className='next-round-button' onClick={startNextRound}>Next Round</button>
-              ) : ("")}
+                <button className='next-round-button' onClick={startNextRound}>NEXT ROUND</button>
+              ) : <button className="next-round-button" onClick={giveUp}>GIVE UP</button>}
             </div>
           </>
         ) : roundTwo === 2 ? (
           <>
 
-            <h2>What year period was it painted?</h2>
+            <h2 className="sentence-prompt">What year period was it painted?</h2>
             <LongOptions setRoundFourButton={setRoundFourButton} roundFourButton={roundFourButton} setRoundTwo={setRoundTwo}></LongOptions>
-
+            
           </>
         ) : roundTwo === 3 ? (
-          
-       <ArtEra setRoundTwo={setRoundTwo}></ArtEra> ) : roundTwo === 4 ? 
+<>
+<h2 className="sentence-prompt">What year period was it painted?</h2>
+<ArtEra setRoundTwo={setRoundTwo}></ArtEra> </>) : roundTwo === 4 ? 
+
        (
         <CurrentMuseum></CurrentMuseum>
        ) : null}
