@@ -1,13 +1,22 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
 const Image = ({ isCorrect, isWrong }) => {
     const rightGuess = ["Mona Lisa", "Leonardo da vinci"];
+
+  
   return (
     <div className="overlay-container">
-      <img src="public/Mona_Lisa.jpg" alt="Mona Lisa" className="clear" />
+      <img
+      src="../../public/Mona_Lisa.jpg"
+      alt="Mona Lisa"
+      className="clear-image"
+      />
+
       {isCorrect && (
         <div className="overlay">
           <FontAwesomeIcon icon={faCheck} className='check-icon' />

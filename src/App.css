@@ -72,8 +72,9 @@ header {
 }
 .blurred {
   display: block;
+  filter: blur(0.9rem);
 }
-.clear {
+.clear-image {
   display: block;
 }
 .start-btn {

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import GamePageHeader from "./GamePageHeader";
-import Image from "./Image";
-import Footer from "./Footer";
-import GuessInput from "./GuessInput";
-import Options from "./Options";
-import LongOptions from "./LongOptions";
-import ArtEra from "./ArtEra";
-import CurrentMuseum from "./CurrentMuseum";
+import Header from "../components/Header";
+import Image from "../components/Image";
+import Footer from "../components/Footer";
+import GuessInput from "../components/GuessInput";
+import Options from "../components/Options";
+import LongOptions from "../components/LongOptions";
+import ArtEra from "../components/ArtEra";
+import CurrentMuseum from "../components/CurrentMuseum";
 
 const GamePage = () => {
   const [isCorrect, setIsCorrect] = useState(false);
@@ -19,6 +19,7 @@ const GamePage = () => {
   const [roundFourButton, setRoundFourButton] = useState(false);
   const [artOrArtist, setArtOrArtist] = useState("art");
   const rightAnswer = 4; // The correct answer index
+
 
   const rightOrWrong = () => {
     if (selectedOption === null) return; // Do nothing if no option is selected
@@ -55,7 +56,7 @@ const GamePage = () => {
   }
   return (
     <div className="container">
-      <GamePageHeader />
+      <Header />
       <main>
         {roundTwo === 0 ? (
           <>
